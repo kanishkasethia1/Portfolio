@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanishka Sethia — Marketing & Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f0ede6;
+  --white: #ffffff;
+  --ink: #111111;
+  --ink2: #444444;
+  --ink3: #999999;
+  --line: #e0ddd6;
+  --blue: #2B4BF2;
+  --blue2: #4a66f5;
+  --blue-bg: #eef1fe;
+  --card: #ffffff;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --purple: #a855f7;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+/* PROGRESS */
+#prog { position: fixed; top: 0; left: 0; height: 3px; background: var(--blue); z-index: 999; width: 0%; transition: width .08s linear; border-radius: 0 2px 2px 0; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 64px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 60px; background: rgba(240,237,230,.95); backdrop-filter: blur(20px);
+  transition: box-shadow .3s;
+}
+nav.s { box-shadow: 0 1px 0 var(--line); }
+.nlogo {
+  font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400;
+  color: var(--blue); text-decoration: none; letter-spacing: -.5px;
+}
+.nlinks { display: flex; gap: 2px; list-style: none; }
+.nlinks a {
+  font-size: 13px; font-weight: 500; color: var(--ink2); text-decoration: none;
+  padding: 6px 14px; border-radius: 100px; transition: all .2s;
+}
+.nlinks a:hover, .nlinks a.on { background: var(--white); color: var(--ink); }
+.nlinks a.on { box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.nav-r { display: flex; gap: 10px; align-items: center; }
+.btn-pill {
+  font-size: 13px; font-weight: 600; padding: 9px 22px; border-radius: 100px;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 7px;
+  transition: all .22s; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(43,75,242,.3); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-outline:hover { background: var(--ink); color: #fff; }
+.btn-ghost { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
+.btn-ghost:hover { background: var(--blue); color: #fff; }
+
+/* REVEAL */
+.rev { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+.rev.fl { transform: translateX(-24px); }
+.rev.fr { transform: translateX(24px); }
+.rev.vis { opacity: 1; transform: none; }
+.d1{transition-delay:.08s}.d2{transition-delay:.15s}.d3{transition-delay:.22s}.d4{transition-delay:.29s}.d5{transition-delay:.36s}
+
+/* LAYOUT */
+.w { max-width: 1120px; margin: 0 auto; padding: 0 60px; }
+section { padding: 100px 0; }
+.sec-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--blue); display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.sec-tag::before { content: ''; width: 28px; height: 2px; background: var(--blue); border-radius: 2px; }
+.sec-h {
+  font-family: 'DM Serif Display', serif; font-size: clamp(34px, 4.5vw, 56px);
+  font-weight: 400; line-height: 1.05; color: var(--ink); letter-spacing: -.5px;
+  margin-bottom: 48px;
+}
+
+/* ═══════════ HERO ═══════════ */
+#hero {
+  min-height: 100vh; display: flex; align-items: center; padding-top: 64px;
+  position: relative; overflow: hidden;
+}
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-left {}
+.hero-rule { width: 40px; height: 3px; background: var(--blue); border-radius: 2px; margin-bottom: 28px; animation: ruleIn .6s ease both .2s; }
+@keyframes ruleIn { from { width: 0; opacity: 0; } }
+.hero-h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(44px, 6vw, 76px); font-weight: 400;
+  line-height: 1.05; color: var(--ink); letter-spacing: -.5px;
+  margin-bottom: 28px;
+  animation: hIn .8s cubic-bezier(.22,1,.36,1) both .3s;
+}
+.hero-h1 .blue { color: var(--blue); }
+@keyframes hIn { from { opacity: 0; transform: translateY(28px); } }
+.hero-lead {
+  font-size: 16px; color: var(--ink); line-height: 1.7; max-width: 520px;
+  margin-bottom: 16px;
+  animation: hIn .8s cubic-bezier(.22,1,.36,1) both .45s;
+}
+.hero-lead strong { font-weight: 600; }
+.hero-sub {
+  font-size: 15px; color: var(--ink2); line-height: 1.75; max-width: 500px;
+  margin-bottom: 36px;
+  animation: hIn .8s cubic-bezier(.22,1,.36,1) both .55s;
+}
+.hero-btns {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  animation: hIn .8s cubic-bezier(.22,1,.36,1) both .65s;
+}
+
+/* hero right — floating cards */
+.hero-right {
+  position: relative; height: 480px;
+  animation: hIn .9s cubic-bezier(.22,1,.36,1) both .5s;
+}
+.fcard {
+  position: absolute; background: var(--white); border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.09), 0 1px 4px rgba(0,0,0,.06);
+  padding: 20px 22px; animation-fill-mode: both;
+  animation-name: cardFloat; animation-timing-function: ease-in-out; animation-direction: alternate; animation-iteration-count: infinite;
+}
+@keyframes cardFloat { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+.fc-eff { top: 40px; left: 20px; width: 200px; animation-duration: 5s; animation-delay: 0s; }
+.fc-pipe { top: 20px; right: 0; width: 260px; animation-duration: 6s; animation-delay: 1s; }
+.fc-comp { bottom: 120px; left: 0; width: 210px; animation-duration: 7s; animation-delay: .5s; }
+.fc-mkt { bottom: 20px; right: 20px; width: 200px; animation-duration: 5.5s; animation-delay: 1.5s; }
+
+.fc-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 10px;
+}
+.ic-green { background: #dcfce7; }
+.ic-blue { background: #e0e8ff; }
+.ic-purple { background: #f3e8ff; }
+.ic-amber { background: #fef3c7; }
+
+.fc-label { font-size: 11px; font-weight: 600; color: var(--ink3); letter-spacing: .5px; margin-bottom: 6px; }
+.fc-big { font-family: 'DM Serif Display', serif; font-size: 34px; font-weight: 400; line-height: 1; color: var(--ink); margin-bottom: 2px; }
+.fc-big.green { color: #16a34a; }
+.fc-sub { font-size: 12px; color: var(--ink3); }
+
+/* pipeline card mini bars */
+.mini-bars { display: flex; align-items: flex-end; gap: 4px; margin-top: 10px; height: 36px; }
+.mb { border-radius: 4px 4px 0 0; background: var(--blue-bg); width: 18px; transition: height .8s ease; }
+.mb.lit { background: var(--blue); }
+
+/* market tags */
+.mkt-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
+.mtag {
+  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px;
+  background: var(--blue-bg); color: var(--blue);
+}
+
+/* floating dots */
+.fdot {
+  position: absolute; border-radius: 50%;
+  background: var(--blue); opacity: .18;
+  animation: dotPulse 3s ease-in-out infinite alternate;
+}
+@keyframes dotPulse { to { transform: scale(1.4); opacity: .1; } }
+
+/* scroll hint */
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  opacity: 0; animation: shIn 1s ease both 2.5s;
+}
+@keyframes shIn { to { opacity: .4; } }
+.scroll-hint span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); }
+.scroll-line { width: 1px; height: 36px; background: linear-gradient(var(--blue), transparent); animation: sl 2s ease infinite; }
+@keyframes sl { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+/* TICKER */
+.ticker { background: var(--ink); overflow: hidden; padding: 11px 0; }
+.ttrack { display: flex; white-space: nowrap; animation: tmv 32s linear infinite; }
+.ttrack:hover { animation-play-state: paused; }
+.tick { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); padding: 0 28px; display: inline-flex; align-items: center; gap: 10px; }
+.tdot { width: 3px; height: 3px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+@keyframes tmv { to { transform: translateX(-50%); } }
+
+/* ═══════════ ABOUT ═══════════ */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 80px; align-items: start; }
+.about-card-wrap { position: sticky; top: 84px; }
+.about-card {
+  background: var(--bg); border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--line);
+}
+.ac-top { padding: 28px 24px; border-bottom: 1px solid var(--line); }
+.ac-initials {
+  width: 56px; height: 56px; border-radius: 16px; background: var(--blue);
+  color: #fff; font-family: 'DM Serif Display', serif; font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.ac-name { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--ink); line-height: 1.2; }
+.ac-role { font-size: 12px; color: var(--blue); font-weight: 600; margin-top: 3px; }
+.ac-loc { font-size: 12px; color: var(--ink3); margin-top: 8px; }
+.ac-edu { padding: 0; }
+.edu-row { padding: 14px 24px; border-bottom: 1px solid var(--line); }
+.edu-row:last-child { border-bottom: none; }
+.edu-d { font-size: 12px; font-weight: 600; color: var(--ink); }
+.edu-s { font-size: 11px; color: var(--blue); margin-top: 2px; }
+.edu-y { font-size: 11px; color: var(--ink3); margin-top: 1px; }
+
+.about-text {}
+.bio-items { display: flex; flex-direction: column; gap: 0; }
+.bio-item { display: grid; grid-template-columns: 36px 1fr; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.bio-item:first-child { border-top: 1px solid var(--line); }
+.bio-n { font-size: 11px; font-weight: 700; color: var(--blue); padding-top: 3px; }
+.bio-t { font-size: 14px; color: var(--ink2); line-height: 1.8; }
+.bio-t strong { color: var(--ink); font-weight: 600; }
+.target-box {
+  margin-top: 28px; padding: 18px 20px; background: var(--blue-bg);
+  border-radius: 12px; border: 1px solid rgba(43,75,242,.12);
+}
+.tb-l { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+.tb-t { font-size: 12px; color: var(--ink2); line-height: 1.9; }
+
+/* ═══════════ SKILLS ═══════════ */
+#skills { background: var(--bg); }
+.skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 14px; }
+.skill-card {
+  background: var(--white); border-radius: 16px; padding: 22px 20px;
+  border: 1px solid var(--line); transition: all .22s;
+}
+.skill-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(43,75,242,.1); border-color: rgba(43,75,242,.2); }
+.sk-icon { font-size: 22px; margin-bottom: 12px; }
+.sk-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+.sk-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.sk-tag {
+  font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 100px;
+  background: var(--bg); border: 1px solid var(--line); color: var(--ink2);
+  transition: all .15s;
+}
+.skill-card:hover .sk-tag { border-color: rgba(43,75,242,.2); }
+
+.tools-row { display: grid; grid-template-columns: repeat(10,1fr); gap: 10px; }
+.tool-card {
+  background: var(--white); border-radius: 14px; padding: 14px 8px;
+  text-align: center; border: 1px solid var(--line); transition: all .2s;
+}
+.tool-card:hover { border-color: var(--blue); background: var(--blue-bg); transform: translateY(-2px); }
+.tool-icon { font-size: 20px; margin-bottom: 5px; }
+.tool-name { font-size: 9px; font-weight: 600; color: var(--ink3); letter-spacing: .5px; }
+
+/* ═══════════ EXPERIENCE ═══════════ */
+#exp { background: var(--white); }
+.exp-list { display: flex; flex-direction: column; gap: 0; }
+.exp-item {
+  display: grid; grid-template-columns: 160px 1fr;
+  gap: 48px; padding: 36px 0; border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-item::before {
+  content: ''; position: absolute; left: 160px; top: 0; bottom: 0;
+  width: 1px; background: var(--line);
+}
+.exp-item::after {
+  content: ''; position: absolute;
+  left: 157px; top: 44px; width: 7px; height: 7px;
+  border-radius: 50%; background: var(--blue);
+  box-shadow: 0 0 0 3px var(--white), 0 0 0 4px var(--blue);
+}
+.exp-meta { text-align: right; padding-top: 4px; padding-right: 28px; }
+.exp-co { font-size: 13px; font-weight: 700; color: var(--ink); }
+.exp-dt { font-size: 11px; color: var(--ink3); margin-top: 4px; }
+.exp-loc { font-size: 11px; color: var(--blue); margin-top: 2px; font-weight: 500; }
+.exp-body { padding-left: 36px; }
+.exp-role { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); margin-bottom: 8px; line-height: 1.2; }
+.exp-sum { font-size: 13px; color: var(--ink3); margin-bottom: 14px; line-height: 1.6; }
+.exp-pts { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.exp-pts li { font-size: 13px; color: var(--ink2); padding-left: 16px; position: relative; line-height: 1.7; }
+.exp-pts li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
+.exp-pts li strong { color: var(--ink); font-weight: 600; }
+
+/* ═══════════ PROJECTS ═══════════ */
+#projects { background: var(--bg); }
+.proj-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.pf {
+  font-size: 12px; font-weight: 600; padding: 8px 18px; border-radius: 100px;
+  border: 1.5px solid var(--line); background: var(--white); color: var(--ink2);
+  cursor: pointer; transition: all .18s;
+}
+.pf.on, .pf:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+.proj-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.pcard {
+  background: var(--white); border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--line); cursor: pointer;
+  transition: transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s, border-color .2s;
+}
+.pcard:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.08); border-color: rgba(43,75,242,.15); }
+.pc-body { padding: 20px 22px 22px; }
+.pc-type { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+.pc-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--ink); line-height: 1.3; margin-bottom: 10px; }
+.pc-desc { font-size: 12px; color: var(--ink3); line-height: 1.7; margin-bottom: 14px; }
+.pc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+.pc-tag { font-size: 10px; padding: 3px 10px; border-radius: 100px; background: var(--bg); border: 1px solid var(--line); color: var(--ink3); }
+.pc-open { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); display: flex; align-items: center; gap: 5px; transition: gap .2s; }
+.pcard:hover .pc-open { gap: 10px; }
+
+/* ═══════════ VIEWER (slides + dashboard) ═══════════ */
+#viewer { position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,.6); backdrop-filter: blur(16px); display: none; align-items: center; justify-content: center; padding: 24px; }
+#viewer.open { display: flex; animation: vIn .2s ease; }
+@keyframes vIn { from { opacity: 0; } }
+
+/* SLIDE DECK */
+.deck-wrap { width: 92vw; max-width: 1000px; display: flex; flex-direction: column; gap: 14px; }
+.deck-hdr { display: flex; align-items: center; justify-content: space-between; }
+.deck-badge { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-right: 12px; flex-shrink: 0; }
+.deck-ttl { font-family: 'DM Serif Display', serif; font-size: 17px; color: rgba(255,255,255,.85); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.deck-x { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.7); width: 34px; height: 34px; border-radius: 100px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all .2s; flex-shrink: 0; margin-left: 12px; }
+.deck-x:hover { background: rgba(255,255,255,.2); color: #fff; }
+.stage { position: relative; width: 100%; padding-top: 56.25%; border-radius: 20px; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,.4); }
+.slide { position: absolute; inset: 0; padding: 5% 6%; display: flex; flex-direction: column; justify-content: center; opacity: 0; transform: translateX(28px); transition: opacity .36s cubic-bezier(.22,1,.36,1), transform .36s cubic-bezier(.22,1,.36,1); pointer-events: none; }
+.slide.act { opacity: 1; transform: none; pointer-events: auto; }
+.slide.out { opacity: 0; transform: translateX(-28px); }
+.sl-eye { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; opacity: .65; }
+.sl-h { font-family: 'DM Serif Display', serif; font-size: clamp(20px, 3vw, 36px); font-weight: 400; line-height: 1.15; margin-bottom: 14px; color: #fff; }
+.sl-b { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,.78); max-width: 580px; }
+.sl-b strong { color: #fff; font-weight: 700; }
+.sl-grid { display: grid; gap: 10px; margin-top: 14px; }
+.sl-grid.g2 { grid-template-columns: 1fr 1fr; }
+.sl-grid.g3 { grid-template-columns: 1fr 1fr 1fr; }
+.sl-grid.g4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.sbox { padding: 14px 16px; border-radius: 12px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); }
+.sbox h4 { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 7px; opacity: .6; color: #fff; }
+.sbox .big { font-family: 'DM Serif Display', serif; font-size: 26px; line-height: 1; margin-bottom: 4px; color: #fff; }
+.sbox p { font-size: 12px; color: rgba(255,255,255,.68); line-height: 1.65; }
+.sl-hl { border-left: 3px solid; padding: 11px 15px; border-radius: 0 10px 10px 0; margin-top: 12px; font-size: 13px; color: rgba(255,255,255,.85); line-height: 1.75; background: rgba(255,255,255,.06); }
+.sl-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.sl-pill { font-size: 11px; font-weight: 500; padding: 5px 13px; border-radius: 100px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.8); }
+.sl-tbl { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 11.5px; }
+.sl-tbl th { padding: 6px 10px; font-size: 8.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,.14); opacity: .55; text-align: left; color: #fff; }
+.sl-tbl td { padding: 7px 10px; border-bottom: 1px solid rgba(255,255,255,.07); color: rgba(255,255,255,.8); }
+.sl-tbl tr:last-child td { border-bottom: none; }
+.slide-nav { display: flex; align-items: center; justify-content: space-between; }
+.dots { display: flex; gap: 6px; align-items: center; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.25); cursor: pointer; transition: all .2s; }
+.dot.on { background: #fff; width: 20px; border-radius: 3px; }
+.arrows { display: flex; gap: 8px; }
+.arr { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.7); width: 36px; height: 36px; border-radius: 100px; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+.arr:hover:not(:disabled) { background: rgba(255,255,255,.2); color: #fff; }
+.arr:disabled { opacity: .18; cursor: default; }
+.slide-ctr { font-size: 11px; font-weight: 600; color: rgba(255,255,255,.35); }
+
+/* DASHBOARD VIEWER */
+.dash-wrap { width: 95vw; max-width: 1100px; max-height: 92vh; overflow-y: auto; background: var(--bg); border-radius: 20px; box-shadow: 0 32px 80px rgba(0,0,0,.4); }
+.dash-wrap::-webkit-scrollbar { width: 3px; }
+.dash-wrap::-webkit-scrollbar-thumb { background: var(--line); }
+.dash-hdr { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; border-bottom: 1px solid var(--line); background: var(--white); position: sticky; top: 0; z-index: 10; border-radius: 20px 20px 0 0; }
+.dash-type { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 3px; }
+.dash-ttl { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--ink); }
+.dash-x { background: none; border: 1.5px solid var(--line); color: var(--ink3); width: 34px; height: 34px; border-radius: 100px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+.dash-x:hover { border-color: var(--blue); color: var(--blue); }
+.dash-body { padding: 24px 28px; }
+.kpis { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; margin-bottom: 18px; }
+.kpi { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 16px 12px; text-align: center; transition: all .2s; cursor: default; }
+.kpi:hover { border-color: var(--blue); background: var(--blue-bg); transform: translateY(-2px); }
+.kpi-v { font-family: 'DM Serif Display', serif; font-size: 26px; line-height: 1; }
+.kpi-v.g { color: #16a34a; } .kpi-v.r { color: #dc2626; } .kpi-v.w { color: #d97706; } .kpi-v.n { color: var(--ink); } .kpi-v.b { color: var(--blue); }
+.kpi-l { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink3); margin-top: 5px; }
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.cbox { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+.cbox.span2 { grid-column: 1/-1; }
+.cbox-t { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink3); margin-bottom: 14px; }
+.cbox canvas { max-height: 190px; }
+.dtbox { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-bottom: 14px; }
+.dtbox-t { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink3); margin-bottom: 12px; }
+.dt { width: 100%; border-collapse: collapse; font-size: 12px; }
+.dt th { padding: 7px 12px; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink3); border-bottom: 1px solid var(--line); background: var(--bg); text-align: left; }
+.dt td { padding: 8px 12px; color: var(--ink2); border-bottom: 1px solid rgba(0,0,0,.04); }
+.dt td:first-child { color: var(--ink); font-weight: 500; }
+.dt tr:last-child td { border-bottom: none; }
+.pill { display: inline-block; padding: 2px 10px; border-radius: 100px; font-size: 10px; font-weight: 700; }
+.pill-g { background: #dcfce7; color: #15803d; }
+.pill-w { background: #fef3c7; color: #b45309; }
+.pill-r { background: #fee2e2; color: #b91c1c; }
+.pill-b { background: var(--blue-bg); color: var(--blue); }
+.insights { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ins { background: var(--blue-bg); border: 1px solid rgba(43,75,242,.1); border-radius: 12px; padding: 14px 16px; }
+.ins-n { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+.ins-t { font-size: 12px; color: var(--ink2); line-height: 1.7; }
+
+/* ═══════════ CONTACT ═══════════ */
+#contact { background: var(--ink); padding: 100px 0; }
+.contact-inner { text-align: center; max-width: 600px; margin: 0 auto; }
+.c-tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
+.c-tag::before { content: ''; width: 24px; height: 2px; background: var(--blue); border-radius: 2px; }
+.c-h { font-family: 'DM Serif Display', serif; font-size: clamp(42px, 6vw, 72px); color: #fff; font-weight: 400; line-height: .95; letter-spacing: -.5px; margin-bottom: 16px; }
+.c-h .blue { color: var(--blue2); }
+.c-sub { font-size: 14px; color: rgba(255,255,255,.45); margin-bottom: 36px; line-height: 1.8; }
+.c-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+.c-link { font-size: 12px; font-weight: 600; padding: 11px 22px; border-radius: 100px; border: 1.5px solid rgba(255,255,255,.15); color: rgba(255,255,255,.6); text-decoration: none; transition: all .2s; display: inline-flex; align-items: center; gap: 7px; }
+.c-link:hover { border-color: rgba(255,255,255,.4); color: #fff; }
+.c-link.hl { background: var(--blue); border-color: var(--blue); color: #fff; }
+.c-link.hl:hover { background: var(--blue2); }
+
+footer { background: #080808; border-top: 1px solid rgba(255,255,255,.05); padding: 16px 60px; display: flex; justify-content: space-between; }
+footer p { font-size: 11px; color: rgba(255,255,255,.2); }
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nlogo" href="#hero">KS</a>
+  <ul class="nlinks">
+    <li><a href="#hero" class="on">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#exp">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-r">
+    <a class="btn-pill btn-outline" href="Kanishka_Sethia_Resume.pdf" download style="font-size:12px;padding:8px 18px">↓ Resume</a>
+    <a class="btn-pill btn-primary" href="#projects">Explore Projects</a>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="hero">
+  <div class="w">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-rule"></div>
+        <h1 class="hero-h1">Hello, I'm <span class="blue">Kanishka.</span></h1>
+        <p class="hero-lead">
+          I work across <strong>marketing, strategy, analytics, dashboards, media planning, client servicing, campaign execution,</strong> and <strong>consulting-style problem solving.</strong>
+        </p>
+        <p class="hero-sub">
+          I'm an MSc in Management candidate at Singapore Management University with experience across analytics, dashboards, go-to-market support, market analysis, media-related work, campaign execution, customer journey projects, strategy decks, and stakeholder-facing recommendations.
+        </p>
+        <div class="hero-btns">
+          <a class="btn-pill btn-primary" href="#about">More about me</a>
+          <a class="btn-pill btn-outline" href="Kanishka_Sethia_Resume.pdf" download>View Resume</a>
+          <a class="btn-pill btn-ghost" href="#projects">Explore Projects</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <!-- floating dots -->
+        <div class="fdot" style="width:12px;height:12px;top:30px;left:50%;animation-delay:.5s;animation-duration:3.5s"></div>
+        <div class="fdot" style="width:8px;height:8px;bottom:140px;right:10px;animation-delay:1s;animation-duration:4s"></div>
+
+        <!-- Card 1: Efficiency -->
+        <div class="fcard fc-eff">
+          <div class="fc-icon ic-green">📈</div>
+          <div class="fc-label">Efficiency</div>
+          <div class="fc-big green">70%</div>
+          <div class="fc-sub">Prospecting time saved</div>
+        </div>
+
+        <!-- Card 2: Pipeline -->
+        <div class="fcard fc-pipe">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <div class="fc-icon ic-blue" style="margin:0;width:30px;height:30px;font-size:15px">📊</div>
+            <span style="font-size:13px;font-weight:600;color:var(--ink)">Pipeline</span>
+          </div>
+          <div class="fc-big" style="font-size:28px">15K+</div>
+          <div class="fc-sub">Records tracked</div>
+          <div class="mini-bars">
+            <div class="mb lit" style="height:60%"></div>
+            <div class="mb lit" style="height:80%"></div>
+            <div class="mb lit" style="height:65%"></div>
+            <div class="mb lit" style="height:90%"></div>
+            <div class="mb lit" style="height:75%"></div>
+            <div class="mb" style="height:50%"></div>
+            <div class="mb" style="height:70%"></div>
+          </div>
+        </div>
+
+        <!-- Card 3: Competitors -->
+        <div class="fcard fc-comp">
+          <div class="fc-icon ic-purple">🎯</div>
+          <div class="fc-label">Competitors</div>
+          <div class="fc-big">15</div>
+          <div class="fc-sub">Benchmarked across APAC</div>
+        </div>
+
+        <!-- Card 4: Markets -->
+        <div class="fcard fc-mkt">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <div class="fc-icon ic-amber" style="margin:0;width:28px;height:28px;font-size:13px">🌏</div>
+            <span style="font-size:12px;font-weight:600;color:var(--ink)">Markets</span>
+          </div>
+          <div style="font-family:'DM Serif Display',serif;font-size:28px;line-height:1;color:var(--ink);margin-bottom:2px">6</div>
+          <div class="fc-sub">SEA markets covered</div>
+          <div class="mkt-tags">
+            <span class="mtag">SG</span><span class="mtag">MY</span><span class="mtag">TH</span><span class="mtag">ID</span><span class="mtag">PH</span><span class="mtag">VN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ttrack">
+    <span class="tick"><span class="tdot"></span>Media Planning</span><span class="tick"><span class="tdot"></span>Client Servicing</span><span class="tick"><span class="tdot"></span>Campaign Analytics</span><span class="tick"><span class="tdot"></span>Power BI</span><span class="tick"><span class="tdot"></span>Google Ads</span><span class="tick"><span class="tdot"></span>Meta Ads</span><span class="tick"><span class="tdot"></span>Tableau</span><span class="tick"><span class="tdot"></span>Go-to-Market</span><span class="tick"><span class="tdot"></span>Stakeholder Management</span><span class="tick"><span class="tdot"></span>Performance Marketing</span>
+    <span class="tick"><span class="tdot"></span>Media Planning</span><span class="tick"><span class="tdot"></span>Client Servicing</span><span class="tick"><span class="tdot"></span>Campaign Analytics</span><span class="tick"><span class="tdot"></span>Power BI</span><span class="tick"><span class="tdot"></span>Google Ads</span><span class="tick"><span class="tdot"></span>Meta Ads</span><span class="tick"><span class="tdot"></span>Tableau</span><span class="tick"><span class="tdot"></span>Go-to-Market</span><span class="tick"><span class="tdot"></span>Stakeholder Management</span><span class="tick"><span class="tdot"></span>Performance Marketing</span>
+  </div>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about" style="background:var(--white)">
+  <div class="w">
+    <div class="sec-tag rev">About</div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(36px,5vw,60px);font-weight:400;color:var(--ink);letter-spacing:-.5px;margin-bottom:36px" class="rev d1">A little about me</h2>
+    <div style="max-width:860px" class="rev d2">
+      <p style="font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:22px">Kanishka is a Singapore-based marketing, strategy, and analytics professional currently pursuing her MSc in Management at Singapore Management University. Her experience spans dashboards, go-to-market support, campaign coordination, market and competitor analysis, customer journey projects, and consulting-style business problem solving.</p>
+      <p style="font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:22px">She is especially interested in work that combines <strong style="color:var(--ink);font-weight:700">media planning, client servicing, analytics, strategic thinking, and execution</strong>. She enjoys understanding business goals, translating them into structured plans, and building work that is both insight-led and practical. Whether she is working on dashboards, strategy decks, campaign support, engagement calendars, market analysis, or customer journey recommendations, she focuses on making information clearer, decisions sharper, and execution more effective.</p>
+      <p style="font-size:17px;color:var(--ink2);line-height:1.85;margin-bottom:40px">She is drawn to roles where she can work across teams, support stakeholders and clients, and contribute to both the thinking and the delivery side of marketing. Her strengths lie in combining <strong style="color:var(--ink);font-weight:700">analytical ability, communication, creativity, and detail orientation</strong> — helping transform messy business challenges into clear recommendations, useful frameworks, and real outcomes.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:60px" class="rev d3">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:14px">Comfortable Working Across</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--blue-bg);color:var(--blue);font-weight:500">Media Planning</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--blue-bg);color:var(--blue);font-weight:500">Analytics & Dashboards</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--blue-bg);color:var(--blue);font-weight:500">Campaign Coordination</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--blue-bg);color:var(--blue);font-weight:500">Client Servicing</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--blue-bg);color:var(--blue);font-weight:500">Strategy & GTM</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--blue-bg);color:var(--blue);font-weight:500">Market Research</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:14px">Looking for Opportunities In</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--ink);color:#fff;font-weight:500">Media Planning</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--ink);color:#fff;font-weight:500">Account Executive</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--ink);color:#fff;font-weight:500">Client Servicing</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--ink);color:#fff;font-weight:500">Campaign Executive</span>
+          <span style="font-size:13px;padding:7px 16px;border-radius:100px;background:var(--ink);color:#fff;font-weight:500">Strategy Analyst</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ VALUES ══════════════ -->
+<section id="skills" style="background:var(--bg)">
+  <div class="w">
+    <div class="sec-tag rev">Values</div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4.5vw,52px);font-weight:400;color:var(--ink);letter-spacing:-.5px;margin-bottom:12px" class="rev d1">What Defines Me</h2>
+    <p style="font-size:16px;color:var(--ink3);margin-bottom:44px;max-width:520px" class="rev d2">More than skills — these are the ways I think, work, and approach problems.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px" class="rev d2">
+      <div style="background:var(--white);border-radius:16px;border:1px solid var(--line);padding:32px 28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px">🧠</div>
+        <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3">Structured Thinker</div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.85">One of the things that defines me most is the way I naturally bring structure to ambiguity. I enjoy taking information that feels broad, scattered, or messy — whether it's campaign inputs, business context, market signals, stakeholder requests, or raw data — and turning it into something clearer and more actionable. I like creating frameworks, priorities, and organised thinking that help people move from confusion to direction.</p>
+      </div>
+      <div style="background:var(--white);border-radius:16px;border:1px solid var(--line);padding:32px 28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px">📊</div>
+        <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3">Data-Driven and Insight-Led</div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.85">I'm naturally drawn to dashboards, analysis, research, reporting, and patterns in information. But what defines me is not just an interest in data itself — it's the need to understand what that data is actually saying. I enjoy looking beyond surface-level numbers, identifying what matters, and translating findings into recommendations, sharper decisions, and clearer next steps.</p>
+      </div>
+      <div style="background:var(--white);border-radius:16px;border:1px solid var(--line);padding:32px 28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px">🎯</div>
+        <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3">Drawn to Media Planning and Business Context</div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.85">I'm especially interested in the thinking behind marketing and media — how objectives are translated into plans, how audiences are understood, how channels support business goals, and how strategy connects to execution. What defines me here is that I'm not only interested in the output, but in the logic behind it: why something is being done, who it is for, and how it supports the bigger business picture.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px" class="rev d3">
+      <div style="background:var(--white);border-radius:16px;border:1px solid var(--line);padding:32px 28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px">🤝</div>
+        <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3">Client and Stakeholder Minded</div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.85">I often think about work from the perspective of the people who will use it, review it, present it, or act on it. Whether I'm working on strategy decks, dashboards, campaign support, recommendations, brochures, or research summaries, I care about clarity, usefulness, and communication. I like making work that not only looks organised, but is genuinely easier for teams, clients, and stakeholders to understand and act on.</p>
+      </div>
+      <div style="background:var(--white);border-radius:16px;border:1px solid var(--line);padding:32px 28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px">⚡</div>
+        <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3">Strong on Execution</div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.85">What also defines me is that I care about execution just as much as ideas. I like structure, follow-through, timelines, and the discipline required to move work from concept to delivery. Whether it's campaign coordination, project support, engagement planning, timeline management, or stakeholder materials, I enjoy being involved in the side of work that makes things tangible, organised, and ready to move.</p>
+      </div>
+      <div style="background:var(--white);border-radius:16px;border:1px solid var(--line);padding:32px 28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px">🔭</div>
+        <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3">Curious Across Functions</div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.85">More than anything, I'm defined by the fact that I enjoy working across functions rather than staying inside one narrow lane. I'm interested in the overlap between strategy, analytics, media, client servicing, business storytelling, and execution. I enjoy roles where I can think critically, learn quickly, and contribute in ways that connect insight with action and planning with delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ EXPERIENCE ══════════════ -->
+<section id="exp" style="background:var(--white)">
+  <div class="w">
+    <div class="sec-tag rev">Work Experience</div>
+    <h2 class="sec-h rev d1">Where I've worked.</h2>
+    <div class="exp-list">
+      <div class="exp-item rev">
+        <div class="exp-meta"><div class="exp-co">Signify</div><div class="exp-dt">Dec 2025 – May 2026</div><div class="exp-loc">Singapore</div></div>
+        <div class="exp-body">
+          <div class="exp-role">End User Marketing Intern</div>
+          <div class="exp-sum">World's largest lighting company. End-user marketing across 6 APAC markets — data, dashboards, and competitive intelligence.</div>
+          <ul class="exp-pts">
+            <li>Built Power BI & Excel dashboards across <strong>6 countries, 15,000+ records</strong> — reduced prospecting time by <strong>70%</strong>.</li>
+            <li>Prioritisation framework across <strong>6,000 projects (~€5.1B)</strong> using time-to-market and revenue impact scoring.</li>
+            <li>Competitor benchmarking across <strong>8 APAC markets, 15 competitors</strong> — informed 10+ brochures and 5 GTM decks; improved stakeholder alignment by <strong>20%</strong>.</li>
+            <li>Mapped customer journey across 6 touchpoints — identified 10 friction points, recommended 5 improvements.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item rev d1">
+        <div class="exp-meta"><div class="exp-co">Enfactum Marketing</div><div class="exp-dt">Aug – Oct 2025</div><div class="exp-loc">Singapore</div></div>
+        <div class="exp-body">
+          <div class="exp-role">Project Management Intern</div>
+          <div class="exp-sum">Advertising agency. Brand activations for HP and Castrol plus client servicing across accounts.</div>
+          <ul class="exp-pts">
+            <li>Planned and delivered <strong>15 on-site events</strong> for Hewlett-Packard and Castrol — scoping, timelines, run-of-show, 5-vendor coordination.</li>
+            <li>Proactive execution updates, issue escalation, and cross-stakeholder coordination.</li>
+            <li>Post-campaign improvement deck for Brands For Less — on-ground learnings into actionable recommendations.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item rev d2">
+        <div class="exp-meta"><div class="exp-co">Sunshine Properties</div><div class="exp-dt">Jul – Aug 2025</div><div class="exp-loc">Singapore & Osaka</div></div>
+        <div class="exp-body">
+          <div class="exp-role">Lead Strategy Consultant · SMU XO</div>
+          <div class="exp-sum">5-member consulting team. Full livestream commerce strategy for a property developer.</div>
+          <ul class="exp-pts">
+            <li>Designed 4-pillar strategy: operating model, merchandising, logistics, pre-arrival engagement.</li>
+            <li>Targets set: <strong>500 viewers/stream, 20 units/stream, 15%+ engagement rate</strong>.</li>
+            <li>Delivered repeatable 12-week content and promotion system for sustained reach.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item rev d3">
+        <div class="exp-meta"><div class="exp-co">Jain Broking Pvt Ltd</div><div class="exp-dt">Jun 2023 – Dec 2024</div><div class="exp-loc">Kolkata, India</div></div>
+        <div class="exp-body">
+          <div class="exp-role">Marketing & Business Strategy Executive</div>
+          <div class="exp-sum">Financial services. Client acquisition, dashboard reporting, and business development strategy.</div>
+          <ul class="exp-pts">
+            <li>Acquired clients generating <strong>SGD 75,000 in AUM</strong>, driving <strong>15% revenue growth</strong>.</li>
+            <li>Converted <strong>15+ clients from a 50+ prospect pipeline</strong> via tailored proposals.</li>
+            <li>Dashboards improving ROI reporting speed and accuracy by <strong>30%</strong>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item rev d4">
+        <div class="exp-meta"><div class="exp-co">VIVID Advertising</div><div class="exp-dt">Aug 2022 – Jan 2023</div><div class="exp-loc">Kolkata, India</div></div>
+        <div class="exp-body">
+          <div class="exp-role">Marketing Intern</div>
+          <div class="exp-sum">Paid campaigns across Google, Facebook, Instagram, and LinkedIn.</div>
+          <ul class="exp-pts">
+            <li>Increased real estate leads by <strong>10%</strong> through paid media optimisation and creative iteration.</li>
+            <li>Delivered <strong>20+ creatives</strong> with structured content calendars.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PROJECTS ══════════════ -->
+<section id="projects" style="background:var(--white)">
+  <div class="w">
+    <div class="sec-tag rev">Portfolio</div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4.5vw,52px);font-weight:400;color:var(--ink);letter-spacing:-.5px;margin-bottom:28px" class="rev d1">Selected Work</h2>
+    <div class="proj-filters rev d2" style="margin-bottom:36px">
+      <button class="pf on" onclick="filt('all',this)">All</button>
+      <button class="pf" onclick="filt('analytics',this)">Dashboards</button>
+      <button class="pf" onclick="filt('strategy',this)">Decks &amp; GTM</button>
+      <button class="pf" onclick="filt('media',this)">Media Planning</button>
+      <button class="pf" onclick="filt('consulting',this)">Consulting Projects</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" id="pg">
+
+      <div class="pcard rev d1" data-cat="analytics" onclick="op('p2')">
+        <div style="background:#eef3ff;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(43,75,242,.15)">DASHBOARDS</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="4" y="4" width="24" height="24" rx="4" fill="#c7d7ff"/><rect x="32" y="4" width="24" height="24" rx="4" fill="#c7d7ff"/><rect x="4" y="32" width="24" height="24" rx="4" fill="#c7d7ff"/><rect x="32" y="32" width="24" height="24" rx="4" fill="#c7d7ff"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">SEA Lead Generation &amp; Projects Dashboard</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">Built dashboards across 6 Southeast Asian markets and 15,000+ records to improve visibility, reporting, and prioritisation.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dcfce7;color:#15803d;font-weight:600">Excel</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">Power BI</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#f3e8ff;color:#7e22ce;font-weight:600">Analytics</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+      <div class="pcard rev d2" data-cat="analytics" onclick="op('p8')">
+        <div style="background:#eef3ff;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(43,75,242,.15)">DASHBOARDS</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="4" y="4" width="24" height="24" rx="4" fill="#c7d7ff"/><rect x="32" y="4" width="24" height="24" rx="4" fill="#c7d7ff"/><rect x="4" y="32" width="24" height="24" rx="4" fill="#c7d7ff"/><rect x="32" y="32" width="24" height="24" rx="4" fill="#c7d7ff"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">Marketing / Analytics Dashboard Work</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">Analytics and dashboard work across Tableau, Excel, and Power BI for marketing performance visibility and data-driven decision making.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#ffedd5;color:#c2410c;font-weight:600">Tableau</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dcfce7;color:#15803d;font-weight:600">Excel</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">Power BI</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+      <div class="pcard rev d1" data-cat="media" onclick="op('p4')">
+        <div style="background:#fff7ed;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#ea580c;background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(234,88,12,.15)">MEDIA PLANNING</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="4" y="20" width="52" height="6" rx="3" fill="#fed7aa"/><rect x="4" y="32" width="40" height="6" rx="3" fill="#fed7aa"/><rect x="4" y="44" width="48" height="6" rx="3" fill="#fed7aa"/><circle cx="30" cy="12" r="8" fill="#fed7aa"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">Integrated Media Plan — Fashion Brand Launch, Singapore</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">8-week SGD 180K paid media strategy across 6 channels for a Korean fashion label's Singapore entry, anchored on ION Orchard store opening.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">Media Planning</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#ffedd5;color:#c2410c;font-weight:600">Channel Strategy</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#f0fdf4;color:#15803d;font-weight:600">SGD 180K</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+      <div class="pcard rev d2" data-cat="strategy" onclick="op('p7')">
+        <div style="background:#fdf4ff;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9333ea;background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(147,51,234,.15)">DECKS & GTM</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="32" rx="4" fill="#e9d5ff"/><rect x="16" y="44" width="28" height="4" rx="2" fill="#e9d5ff"/><rect x="25" y="40" width="10" height="4" rx="2" fill="#e9d5ff"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">Product Launch — Sustainable Beauty Brand, Southeast Asia</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">SGD 320K go-to-market: 3 audience personas, tiered influencer model, 12-week phased launch across Singapore and SEA markets.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#f3e8ff;color:#7e22ce;font-weight:600">GTM Strategy</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#fce7f3;color:#be185d;font-weight:600">Influencer</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">SEA Launch</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+      <div class="pcard rev d1" data-cat="consulting" onclick="op('p1')">
+        <div style="background:#f0fdf4;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#16a34a;background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(22,163,74,.15)">CONSULTING</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="20" r="12" fill="#bbf7d0"/><rect x="10" y="38" width="40" height="16" rx="4" fill="#bbf7d0"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">Livestream Commerce Strategy — Sunshine Properties</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">Led 5-member SMU consulting team. 4-pillar livestream commerce strategy for a property developer targeting Japanese buyers.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dcfce7;color:#15803d;font-weight:600">Consulting</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">GTM Strategy</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#fef9c3;color:#a16207;font-weight:600">SMU XO</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+      <div class="pcard rev d2" data-cat="strategy" onclick="op('p3')">
+        <div style="background:#faf5ff;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9333ea;background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(147,51,234,.15)">DECKS & GTM</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" fill="#e9d5ff"/><path d="M22 30 l6 6 l10-12" stroke="#9333ea" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">AI Grooming Tool for Gen Z — L'Oréal Brandstorm 2025</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">AI-powered personalised grooming tool concept. Product strategy, GTM plan, and TikTok-first launch approach. Earned jury recognition.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#f3e8ff;color:#7e22ce;font-weight:600">Brand Strategy</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">AI Product</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#fce7f3;color:#be185d;font-weight:600">L'Oréal</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+      <div class="pcard rev d1" data-cat="analytics" onclick="op('p5')">
+        <div style="background:#f0fdf4;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#16a34a;background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(22,163,74,.15)">DASHBOARDS</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="6" y="36" width="10" height="18" rx="2" fill="#bbf7d0"/><rect x="20" y="24" width="10" height="30" rx="2" fill="#bbf7d0"/><rect x="34" y="16" width="10" height="38" rx="2" fill="#86efac"/><rect x="48" y="28" width="10" height="26" rx="2" fill="#bbf7d0"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">Post-Campaign Performance Review</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">Channel ROI analysis across Google, Instagram, Facebook, YouTube. Audience segmentation, funnel breakdown, and Phase 2 optimisation plan.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dcfce7;color:#15803d;font-weight:600">Analytics</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">ROI Analysis</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#ffedd5;color:#c2410c;font-weight:600">SGD 95K</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+      <div class="pcard rev d2" data-cat="strategy" onclick="op('p6')">
+        <div style="background:#eff6ff;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(43,75,242,.15)">DECKS & GTM</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke="#bfdbfe" stroke-width="3" fill="#dbeafe"/><circle cx="30" cy="30" r="12" fill="#93c5fd"/><line x1="30" y1="8" x2="30" y2="18" stroke="#bfdbfe" stroke-width="2"/><line x1="30" y1="42" x2="30" y2="52" stroke="#bfdbfe" stroke-width="2"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">Strategic Growth Analysis — Zoom Communications</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">Consulting-format deck: competitive landscape mapping, full SWOT, and five prioritised strategic recommendations for Zoom.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">SWOT</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#f0fdf4;color:#15803d;font-weight:600">Competitor Analysis</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#f3e8ff;color:#7e22ce;font-weight:600">Strategy</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+      <div class="pcard rev d1" data-cat="consulting" onclick="op('p9')" style="grid-column:1/2">
+        <div style="background:#fffbeb;border-radius:12px 12px 0 0;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <div style="position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#d97706;background:var(--white);padding:4px 12px;border-radius:100px;border:1px solid rgba(217,119,6,.15)">CONSULTING</div>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="6" y="6" width="48" height="36" rx="4" fill="#fde68a"/><rect x="14" y="16" width="32" height="4" rx="2" fill="#fbbf24"/><rect x="14" y="24" width="24" height="4" rx="2" fill="#fbbf24"/><rect x="20" y="44" width="20" height="10" rx="2" fill="#fde68a"/></svg>
+        </div>
+        <div class="pc-body">
+          <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35">Multi-Stakeholder Campaign Rollout — FMCG Brand</div>
+          <div style="font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:16px">End-to-end account management simulation: RACI matrix, 10-week milestone plan, risk register, and live weekly status reports.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#fef9c3;color:#a16207;font-weight:600">Client Servicing</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#ffedd5;color:#c2410c;font-weight:600">RACI</span>
+            <span style="font-size:11px;padding:3px 11px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-weight:600">SGD 250K</span>
+          </div>
+          <div class="pc-open" style="color:var(--blue);font-weight:600;font-size:14px">View Project →</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact" style="padding:100px 0">
+  <div class="w">
+    <div class="contact-inner rev">
+      <div class="c-tag">Get In Touch</div>
+      <h2 class="c-h">Let's work<br><span class="blue">together.</span></h2>
+      <p class="c-sub">Open to media planning, client servicing, campaign management, and integrated marketing roles in Singapore and APAC.</p>
+      <div class="c-links">
+        <a class="c-link" href="/cdn-cgi/l/email-protection#701b111e1903181b115e035e42404244301d1d5e031d055e1514055e0317">✉ Email Me</a>
+        <a class="c-link" href="tel:+6585152172">📞 +65 8515 2172</a>
+        <a class="c-link" href="https://linkedin.com/in/kanishkasethia" target="_blank">in LinkedIn</a>
+        <a class="c-link hl" href="Kanishka_Sethia_Resume.pdf" download>↓ Download Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer><p>© 2025 Kanishka Sethia · Singapore</p><p>Portfolio work samples demonstrate professional capability</p></footer>
+
+<!-- VIEWER -->
+<div id="viewer" onclick="hv(event)"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script>
+/* scroll + nav */
+window.addEventListener('scroll',()=>{
+  document.getElementById('prog').style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100+'%';
+  document.getElementById('nav').classList.toggle('s',window.scrollY>40);
+  const sections=['hero','about','skills','exp','projects','contact'];
+  let cur='hero';
+  sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-80)cur=id;});
+  document.querySelectorAll('.nlinks a').forEach(a=>{
+    const h=a.getAttribute('href').replace('#','');
+    a.classList.toggle('on',h===cur);
+  });
+});
+/* reveal */
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+/* filter */
+function filt(cat,btn){
+  document.querySelectorAll('.pf').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+  document.querySelectorAll('.pcard').forEach(c=>{const m=cat==='all'||c.dataset.cat.includes(cat);c.style.opacity=m?'1':'0.12';c.style.pointerEvents=m?'auto':'none';c.style.transition='opacity .25s';});
+}
+
+/* ══ SLIDE DATA ══ */
+const DECKS={
+p1:{ac:'#2B4BF2',bg:'linear-gradient(135deg,#0a0f2e 0%,#1a2060 100%)',type:'Consulting',slides:[
+  {eye:'SMU XO · Jul–Aug 2025',h:'Livestream Commerce Strategy — Sunshine Properties',b:'Led a 5-member consulting team designing a full livestream commerce go-to-market for a property developer targeting younger Japanese buyers.',x:`<div class="sl-grid g4"><div class="sbox"><div class="big" style="color:#60a5fa">500</div><h4>Viewers/Stream</h4></div><div class="sbox"><div class="big" style="color:#60a5fa">20</div><h4>Units/Stream</h4></div><div class="sbox"><div class="big" style="color:#60a5fa">15%+</div><h4>Engagement</h4></div><div class="sbox"><div class="big" style="color:#60a5fa">12wk</div><h4>Roadmap</h4></div></div>`},
+  {eye:'The Problem',h:'Reaching Buyers Without Physical Events',b:'Sunshine Properties needed to reach younger Japanese investors without expensive in-person events. Livestream commerce offered a scalable, high-engagement alternative — but required a full operating model from scratch.',x:`<div class="sl-hl" style="border-color:#2B4BF2">Challenge: build credibility, showcase properties visually, and drive purchase intent — all within a single 60-minute livestream format.</div>`},
+  {eye:'4-Pillar Strategy',h:'The Framework We Designed',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>01 · Operating Model</h4><p>Platform selection (Taobao Live, YouTube Live), staffing, production requirements, scheduling cadence</p></div><div class="sbox"><h4>02 · Merchandising</h4><p>Property showcase format, virtual tours, staged urgency triggers, and bundle incentives for first-time buyers</p></div><div class="sbox"><h4>03 · Logistics</h4><p>Pre-sales management, document-signing flow, escrow integration, post-stream follow-up system</p></div><div class="sbox"><h4>04 · Pre-Arrival Engagement</h4><p>12-week warm-up content calendar, community building, lead nurturing before every stream</p></div></div>`},
+  {eye:'12-Week Roadmap',h:'A Repeatable Playbook',b:'Designed for sustained reach — not a one-off campaign. Includes stream script, KPI tracking framework, and community growth system.',x:`<div class="sl-grid g3"><div class="sbox"><h4>Weeks 1–4 · Build</h4><p>Content calendar, social seeding, WeChat and YouTube community, waitlist collection</p></div><div class="sbox"><h4>Weeks 5–8 · Pilot</h4><p>2 test streams. Optimise format and pacing using real engagement data before scaling.</p></div><div class="sbox"><h4>Weeks 9–12 · Launch</h4><p>Weekly streams, paid promotion, influencer amplification, retargeting warm viewers</p></div></div>`},
+  {eye:'Outcome',h:'Endorsed by Client Leadership',b:'Presented to Sunshine Properties leadership. Recommendations endorsed for implementation as part of SMU XO (External Opportunity) consulting programme.',x:`<div class="sl-pills"><span class="sl-pill">SMU XO Consulting</span><span class="sl-pill">Livestream Commerce</span><span class="sl-pill">GTM Strategy</span><span class="sl-pill">Client Endorsed</span></div><div class="sl-hl" style="border-color:#2B4BF2;margin-top:12px">Every recommendation included a "how to execute" component — not just a strategy document.</div>`}
+]},
+p3:{ac:'#a855f7',bg:'linear-gradient(135deg,#150828 0%,#250f40 100%)',type:"L'Oréal Brandstorm 2025",slides:[
+  {eye:"L'Oréal Brandstorm 2025",h:'AI Grooming Tool for Generation Z',b:"Developed an AI-powered personalised grooming tool addressing Gen Z's core paradox: the most skincare-literate generation ever — but also the most overwhelmed.",x:`<div class="sl-grid g4"><div class="sbox"><div class="big" style="color:#c084fc">84%</div><h4>Want personalised recs</h4></div><div class="sbox"><div class="big" style="color:#c084fc">3.4×</div><h4>More time researching</h4></div><div class="sbox"><div class="big" style="color:#c084fc">#1</div><h4>Requested feature</h4></div><div class="sbox"><div class="big" style="color:#c084fc">✓</div><h4>Jury Recognised</h4></div></div>`},
+  {eye:'Consumer Insight',h:'The Gen Z Skincare Paradox',b:"Gen Z is deeply interested in skincare science — but overwhelmed by choice. They don't trust generic 5-question quizzes. They want AI that actually sees their skin.",x:`<div class="sl-grid g2"><div class="sbox"><h4>The Problem</h4><p>Hundreds of L'Oréal SKUs, no personalised path. Generic quizzes give everyone the same 3 products. Gen Z sees through it.</p></div><div class="sbox"><h4>The Opportunity</h4><p>Camera-based AI skin analysis + ingredient education + personalised routine builder. Replace overwhelm with confidence.</p></div></div>`},
+  {eye:'The Product',h:'Four Core Features',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>🔬 AI Skin Analysis</h4><p>Camera-based skin tone, texture, and concern identification. No quiz. 15 seconds.</p></div><div class="sbox"><h4>📋 Ingredient Transparency</h4><p>Plain-language breakdown of every ingredient — what it does, why it's included.</p></div><div class="sbox"><h4>⏰ Routine Builder</h4><p>Personalised AM/PM routine with L'Oréal products and correct layering order.</p></div><div class="sbox"><h4>👥 Community Layer</h4><p>Peer reviews filtered by verified skin type — relevant social proof, not anonymous ratings.</p></div></div>`},
+  {eye:'Go-to-Market',h:'TikTok-First. Sephora-Integrated.',b:'',x:`<div class="sl-grid g3"><div class="sbox"><h4>Phase 1 · Awareness</h4><p>TikTok "skin scan reveals" as organic content format. Target: 10M impressions pre-launch.</p></div><div class="sbox"><h4>Phase 2 · Trial</h4><p>In-app AR try-on + Sephora POS integration. Scan your skin at the counter before buying.</p></div><div class="sbox"><h4>Phase 3 · Retention</h4><p>Monthly skin tracking, routine adjustments, replenishment prompts based on usage data.</p></div></div><div class="sl-hl" style="border-color:#a855f7;margin-top:12px">Earned jury recognition at L'Oréal Brandstorm 2025 — presented to L'Oréal executives and an international judging panel.</div>`}
+]},
+p4:{ac:'#2B4BF2',bg:'linear-gradient(135deg,#0a0f2e 0%,#1a1e50 100%)',type:'Media Planning',slides:[
+  {eye:'Media Planning · SGD 180K · Singapore · 8 Weeks',h:'Integrated Media Plan — LUMA Korean Fashion',b:'Full paid media strategy for a Korean fashion label entering Singapore with zero brand awareness, anchored on an ION Orchard store opening.',x:`<div class="sl-grid g4"><div class="sbox"><div class="big" style="color:#60a5fa">180K</div><h4>SGD Budget</h4></div><div class="sbox"><div class="big" style="color:#60a5fa">6</div><h4>Channels</h4></div><div class="sbox"><div class="big" style="color:#60a5fa">5M+</div><h4>Target Impressions</h4></div><div class="sbox"><div class="big" style="color:#60a5fa">$18</div><h4>Target CPA (SGD)</h4></div></div>`},
+  {eye:'Target Audience',h:'Two Segments, One Funnel',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>Primary · F 25–35</h4><p>Urban professionals, SGD 60k+ HHI, Instagram + TikTok native, K-culture influenced. Discovery mindset, considered purchase behaviour.</p></div><div class="sbox"><h4>Secondary · F 19–24</h4><p>Fashion-forward students, highly responsive to UGC and creator content, shorter consideration window, share-first on TikTok.</p></div></div><div class="sl-hl" style="border-color:#2B4BF2;margin-top:12px">"I discover on social, research on Google, decide in-store or online." — Audience mindset mapped across the full funnel.</div>`},
+  {eye:'Channel Mix — SGD 180,000',h:'Six Channels, Clear Funnel Roles',b:'',x:`<div class="sl-grid g3"><div class="sbox"><h4>Instagram · 33% · $60K</h4><p>Primary consideration. Reels for discovery + retargeting for conversion. Highest purchase intent for this audience.</p></div><div class="sbox"><h4>TikTok · 22% · $40K</h4><p>Lead channel Weeks 1–2. Creator seeding generates organic amplification before paid peaks.</p></div><div class="sbox"><h4>Google Search · 17% · $30K</h4><p>Captures demand from social and OOH. Branded + "Korean fashion Singapore" keyword cluster. Live Day 1.</p></div><div class="sbox"><h4>Programmatic · 11% · $20K</h4><p>Retargeting engaged non-converters in Weeks 6–7. Lower-funnel nudge.</p></div><div class="sbox"><h4>Influencer · 11% · $20K</h4><p>2 macro (100–300K) + 5 micro (15–50K). Authentic seeding before paid peaks.</p></div><div class="sbox"><h4>OOH/DOOH · 6% · $10K</h4><p>Orchard Road + Somerset MRT. Physical anchor for the ION store opening.</p></div></div>`},
+  {eye:'8-Week Campaign Plan',h:'Four Phases to Market',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>Build · Wks 1–2</h4><p>TikTok creator seeding + micro-influencer content. Organic buzz before paid peaks. No hard sell.</p></div><div class="sbox"><h4>Amplify · Wks 3–5</h4><p>Instagram retargeting, Google Search live, OOH at Orchard, macro influencer launch post.</p></div><div class="sbox"><h4>Convert · Wks 6–7</h4><p>Programmatic retargeting + shopping ads. Drive footfall and online purchase.</p></div><div class="sbox"><h4>Sustain · Wk 8</h4><p>CRM email to engaged non-buyers. Organic storytelling. Loyalty programme seeding.</p></div></div>`}
+]},
+p6:{ac:'#0ea5e9',bg:'linear-gradient(135deg,#040e18 0%,#0c2030 100%)',type:'Strategy',slides:[
+  {eye:'Consulting Format · 4-Week Analysis',h:'Zoom Communications — Strategic Growth Analysis',b:'Post-pandemic Zoom faces stagnating consumer growth and a structural bundling disadvantage against Microsoft Teams. Five prioritised recommendations.',x:`<div class="sl-grid g4"><div class="sbox"><div class="big" style="color:#38bdf8">$159B</div><h4>Peak Market Cap</h4></div><div class="sbox"><div class="big" style="color:#38bdf8">500M+</div><h4>Daily Participants</h4></div><div class="sbox"><div class="big" style="color:#38bdf8">4</div><h4>Key Competitors</h4></div><div class="sbox"><div class="big" style="color:#38bdf8">5</div><h4>Recommendations</h4></div></div>`},
+  {eye:'Competitive Landscape',h:'The Four Threats',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>Microsoft Teams — Structural</h4><p>Bundled inside M365 at zero incremental cost. Organisations paying for Office rarely pay for Zoom too.</p></div><div class="sbox"><h4>Google Meet — SMB</h4><p>Free inside Google Workspace. Commoditises video conferencing for the SMB segment.</p></div><div class="sbox"><h4>Cisco Webex — Enterprise</h4><p>Same high-value customers. Stronger security, compliance, hardware integration credentials.</p></div><div class="sbox"><h4>Slack / Salesforce — Platform</h4><p>Captures collaboration spend at the workflow layer. Async-first culture erodes meeting habit.</p></div></div>`},
+  {eye:'SWOT Analysis',h:'Where Zoom Stands Today',b:'',x:`<div class="sl-grid g2"><div class="sbox" style="border-color:rgba(34,197,94,.4)"><h4 style="color:#4ade80">Strengths</h4><p>Global brand · Frictionless UX · Strong NPS · Freemium model · HIPAA/FERPA compliant</p></div><div class="sbox" style="border-color:rgba(239,68,68,.4)"><h4 style="color:#f87171">Weaknesses</h4><p>Single-product dependency · Bundling disadvantage · Limited enterprise stickiness</p></div><div class="sbox" style="border-color:rgba(245,158,11,.4)"><h4 style="color:#fbbf24">Opportunities</h4><p>AI meeting intelligence · Zoom Phone · Telehealth (22% CAGR) · APAC + LATAM</p></div><div class="sbox" style="border-color:rgba(168,85,247,.4)"><h4 style="color:#c084fc">Threats</h4><p>Teams bundling erodes SMB · Video commoditisation · SaaS spend rationalisation</p></div></div>`},
+  {eye:'Strategic Recommendations',h:'Five Moves, Prioritised',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>01 · AI Companion</h4><p>Market as productivity multiplier — meetings produce action items and summaries automatically. Clearest differentiation from Teams.</p></div><div class="sbox"><h4>02 · Build a Platform</h4><p>Integrate Salesforce, HubSpot, Jira. Make leaving Zoom a workflow disruption, not just a product switch.</p></div><div class="sbox"><h4>03 · Enterprise GTM Pivot</h4><p>Enterprise: 2.8× higher LTV, lower churn. Restructure away from SMB where Microsoft has structural advantage.</p></div><div class="sbox"><h4>04 · Telehealth Beachhead</h4><p>Telehealth growing 22% CAGR. Build "Zoom for Health" with EHR integrations. Low Teams penetration here.</p></div></div>`}
+]},
+p7:{ac:'#f97316',bg:'linear-gradient(135deg,#1a0800 0%,#2e1200 100%)',type:'GTM Strategy',slides:[
+  {eye:'Go-to-Market · SGD 320K · 12 Weeks · Southeast Asia',h:'AURA Sustainable Beauty — SEA Launch',b:'Full GTM plan for a Singapore-born reef-safe skincare brand. Primary launch in Singapore, phased expansion to Malaysia, Indonesia, Thailand.',x:`<div class="sl-grid g4"><div class="sbox"><div class="big" style="color:#fb923c">320K</div><h4>SGD Budget</h4></div><div class="sbox"><div class="big" style="color:#fb923c">4</div><h4>SEA Markets</h4></div><div class="sbox"><div class="big" style="color:#fb923c">3</div><h4>Audience Segments</h4></div><div class="sbox"><div class="big" style="color:#fb923c">12wk</div><h4>Launch Window</h4></div></div>`},
+  {eye:'Audience Strategy',h:'Three Segments, Three Messages',b:'',x:`<div class="sl-grid g3"><div class="sbox"><h4>Conscious Consumer · F 26–38</h4><p>Sustainability-driven. Values reef-safe, plastic-neutral, supply chain transparency. Instagram + Pinterest. "Beauty that gives back."</p></div><div class="sbox"><h4>Beauty Explorer · F 19–27</h4><p>Trend and creator-led. Responds to UGC and honest reviews. TikTok + YouTube. "No filters. No compromises."</p></div><div class="sbox"><h4>Efficacy Seeker · F 30–45</h4><p>Ingredient-aware, science-trusting. Google + Facebook. "Science-backed. Nature-made."</p></div></div>`},
+  {eye:'Influencer Strategy',h:'A Tiered Creator Model',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>Hero × 1 · 500K+</h4><p>Launch announcement + 30-day transformation series. Brand face. Exclusivity during launch window.</p></div><div class="sbox"><h4>Mid-Tier × 4 · 80–200K</h4><p>Ingredient credibility + sustainability education. Long-form reviews from science-literate creators.</p></div><div class="sbox"><h4>Micro × 12 · 10–50K</h4><p>Authenticity and honest first impressions. UGC rights purchased. Reposted as brand-owned content.</p></div><div class="sbox"><h4>Nano + UGC × 25+ · under 10K</h4><p>Social proof volume. Community seeding. Discount codes for tracking.</p></div></div>`},
+  {eye:'12-Week Launch Plan',h:'Four Phases, One Story',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>Tease · Wks 1–2</h4><p>Teaser content, press seeding, email list build. Goal: 5,000 signups before launch day.</p></div><div class="sbox"><h4>Launch Burst · Wks 3–5</h4><p>Hero influencer, PR release, TikTok TopView, in-store sampling at ION Orchard.</p></div><div class="sbox"><h4>Build · Wks 6–9</h4><p>Micro influencer reviews, retargeting warm audiences, Google Search, Sephora placement.</p></div><div class="sbox"><h4>Convert · Wks 10–12</h4><p>Conversion ads, email to warm leads, loyalty programme intro, SEA market seeding.</p></div></div>`}
+]},
+p9:{ac:'#f59e0b',bg:'linear-gradient(135deg,#160e00 0%,#261a00 100%)',type:'Client Servicing · Account Management',slides:[
+  {eye:'Account Management · SGD 250K · 10 Weeks',h:'NaturaMeal PlantEat — Multi-Stakeholder Campaign',b:'Simulates the full account executive role: decode the brief, build the RACI, manage the timeline, coordinate creative, media, PR, and production simultaneously.',x:`<div class="sl-grid g4"><div class="sbox"><div class="big" style="color:#fcd34d">250K</div><h4>SGD Budget</h4></div><div class="sbox"><div class="big" style="color:#fcd34d">10</div><h4>Week Timeline</h4></div><div class="sbox"><div class="big" style="color:#fcd34d">4</div><h4>Teams Coordinated</h4></div><div class="sbox"><div class="big" style="color:#fcd34d">6</div><h4>SKUs to Launch</h4></div></div>`},
+  {eye:'The Brief',h:'What the Client Needed',b:'NaturaMeal launching PlantEat — 6 plant-based ready meals. 10-week integrated campaign across digital, in-store, and PR. Simultaneously.',x:`<div class="sl-hl" style="border-color:#f59e0b">"Build awareness, drive trial, strong social presence. Coordinate creative, media, PR, and production simultaneously." — Client Brief</div><div class="sl-grid g2" style="margin-top:12px"><div class="sbox"><h4>My Role as AE</h4><p>Decode brief → assign workstreams → RACI → maintain client comms → deliver wrap report</p></div><div class="sbox"><h4>The Challenge</h4><p>4 external teams + 1 client + 1 AD + multiple approval gates. Keep everyone moving.</p></div></div>`},
+  {eye:'Stakeholder Management',h:'RACI Matrix + Escalation Protocol',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>RACI Structure</h4><p style="line-height:2.3">Client Manager · A, C, I<br>Account Director · A, C, I<br>Account Executive (Me) · R<br>Creative + Media + PR · R, I</p></div><div class="sbox"><h4>Escalation Protocol</h4><p>Any unresolved issue >24h: flag to AD. Any issue >48h: escalate to client. All logged with timestamp. No surprises.</p></div></div><div class="sl-hl" style="border-color:#f59e0b;margin-top:12px">Built 2-day buffers into every approval gate. Week 3 creative was 1 day late — absorbed without impacting the live date.</div>`},
+  {eye:'10-Week Timeline',h:'Milestones & RAG Status',b:'',x:`<div class="sl-grid g2"><div class="sbox"><h4>Weeks 1–2 · 🟢</h4><p>Brief decoded. Creative brief + media plan submitted. All teams scoped.</p></div><div class="sbox"><h4>Weeks 3–4 · 🟡 +1d</h4><p>Concepts presented. Client sign-off. 1-day creative delay absorbed by buffer.</p></div><div class="sbox"><h4>Weeks 5–6 · 🟢</h4><p>Shoot complete. Seeding begins. Campaign goes live on schedule.</p></div><div class="sbox"><h4>Weeks 7–10 · 🟢</h4><p>Live + weekly reporting. Mid-campaign review. Wrap report Week 10.</p></div></div>`}
+]}
+};
+
+/* ══ DASHBOARD DATA ══ */
+const DASH={
+  p2:{ac:'#16a34a',type:'Analytics · Signify',title:'APAC Lead Generation Dashboards'},
+  p5:{ac:'#16a34a',type:'Campaign Analytics',title:'Post-Campaign Performance Review'},
+  p8:{ac:'#2B4BF2',type:'Analytics Dashboard',title:'Marketing Intelligence Dashboard'}
+};
+
+let CUR=0,TOT=0,CHARTS=[];
+
+function op(id){
+  if(DASH[id]){openDash(id);return;}
+  if(DECKS[id]){openDeck(id);return;}
+}
+
+/* ── DECK ── */
+function openDeck(id){
+  const d=DECKS[id];TOT=d.slides.length;CUR=0;
+  document.getElementById('viewer').innerHTML=`
+    <div class="deck-wrap" onclick="event.stopPropagation()">
+      <div class="deck-hdr">
+        <div style="display:flex;align-items:center;min-width:0">
+          <span class="deck-badge" style="background:${d.ac}22;color:${d.ac};border:1px solid ${d.ac}44">${d.type}</span>
+          <span class="deck-ttl">${d.slides[0].h}</span>
+        </div>
+        <button class="deck-x" onclick="closeV()">✕</button>
+      </div>
+      <div class="stage" style="background:${d.bg}">
+        ${d.slides.map((s,i)=>`<div class="slide ${i===0?'act':''}" id="sl${i}" style="color:#fff">
+          <div class="sl-eye" style="color:${d.ac}">${s.eye}</div>
+          <div class="sl-h">${s.h}</div>
+          ${s.b?`<div class="sl-b">${s.b}</div>`:''}
+          ${s.x||''}
+        </div>`).join('')}
+      </div>
+      <div class="slide-nav">
+        <div class="dots" id="sdots">${d.slides.map((_,i)=>`<div class="dot ${i===0?'on':''}" onclick="gsl(${i})"></div>`).join('')}</div>
+        <span class="slide-ctr" id="sctr">1 / ${TOT}</span>
+        <div class="arrows">
+          <button class="arr" id="sarr-p" onclick="nsl(-1)" disabled>←</button>
+          <button class="arr" id="sarr-n" onclick="nsl(1)">→</button>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('viewer').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function nsl(d){gsl(CUR+d);}
+function gsl(i){
+  const o=document.getElementById('sl'+CUR);o.classList.remove('act');o.classList.add('out');
+  setTimeout(()=>o.classList.remove('out'),380);
+  CUR=i;document.getElementById('sl'+CUR).classList.add('act');
+  document.querySelectorAll('#sdots .dot').forEach((d,j)=>d.classList.toggle('on',j===CUR));
+  document.getElementById('sctr').textContent=`${CUR+1} / ${TOT}`;
+  document.getElementById('sarr-p').disabled=CUR===0;
+  document.getElementById('sarr-n').disabled=CUR===TOT-1;
+}
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('viewer').classList.contains('open'))return;
+  if(e.key==='ArrowRight'&&CUR<TOT-1)nsl(1);
+  else if(e.key==='ArrowLeft'&&CUR>0)nsl(-1);
+  else if(e.key==='Escape')closeV();
+});
+
+/* ── DASHBOARD ── */
+function openDash(id){
+  killCharts();
+  const d=DASH[id];
+  const body=id==='p2'?dashP2():id==='p5'?dashP5():dashP8();
+  document.getElementById('viewer').innerHTML=`
+    <div class="dash-wrap" onclick="event.stopPropagation()">
+      <div class="dash-hdr">
+        <div><span class="dash-type">${d.type}</span><span class="dash-ttl">${d.title}</span></div>
+        <button class="dash-x" onclick="closeV()">✕</button>
+      </div>
+      <div class="dash-body">${body}</div>
+    </div>`;
+  document.getElementById('viewer').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(drawCharts,120);
+}
+function killCharts(){CHARTS.forEach(c=>{try{c.destroy();}catch(e){}});CHARTS=[];}
+
+function dashP2(){return`<div class="kpis"><div class="kpi"><div class="kpi-v g">70%</div><div class="kpi-l">Prospecting Time ↓</div></div><div class="kpi"><div class="kpi-v n">15K+</div><div class="kpi-l">Records Consolidated</div></div><div class="kpi"><div class="kpi-v g">20%</div><div class="kpi-l">Stakeholder Alignment ↑</div></div><div class="kpi"><div class="kpi-v n">€5.1B</div><div class="kpi-l">Pipeline Mapped</div></div><div class="kpi"><div class="kpi-v b">6</div><div class="kpi-l">APAC Countries</div></div></div><div class="chart-grid"><div class="cbox"><div class="cbox-t">Pipeline by Country (Prospects)</div><canvas id="cc1"></canvas></div><div class="cbox"><div class="cbox-t">Opportunity Score vs Revenue Impact</div><canvas id="cc2"></canvas></div></div><div class="chart-grid"><div class="cbox span2"><div class="cbox-t">Competitor Engagement Score — 8 APAC Markets</div><canvas id="cc3"></canvas></div></div><div class="dtbox"><div class="dtbox-t">Customer Journey — Friction Points & Improvements</div><table class="dt"><thead><tr><th>Touchpoint</th><th>Friction Identified</th><th>Recommended Improvement</th><th>Priority</th></tr></thead><tbody><tr><td>Initial Discovery</td><td>No centralised product finder</td><td>Smart recommendation engine</td><td><span class="pill pill-r">High</span></td></tr><tr><td>Sales Qualification</td><td>Manual scoring, 3h/rep/wk</td><td>Automated Power BI scoring dashboard</td><td><span class="pill pill-r">High</span></td></tr><tr><td>Proposal Stage</td><td>Generic brochures</td><td>Market-specific templates (10 built)</td><td><span class="pill pill-w">Medium</span></td></tr><tr><td>Decision / Close</td><td>No competitive positioning</td><td>15-competitor benchmarking tracker</td><td><span class="pill pill-w">Medium</span></td></tr><tr><td>Post-Sale Handoff</td><td>No structured onboarding</td><td>6-touchpoint journey map + SOP</td><td><span class="pill pill-g">Done</span></td></tr></tbody></table></div><div class="insights"><div class="ins"><div class="ins-n">Key Insight 01</div><div class="ins-t">Singapore and Indonesia account for 58% of total prospect value despite only 34% of record volume — these markets need dedicated prioritisation rules.</div></div><div class="ins"><div class="ins-n">Key Insight 02</div><div class="ins-t">The top 20% of projects by opportunity score represent 74% of the €5.1B pipeline value. The framework reduces noise and focuses BD effort where it matters most.</div></div></div>`;}
+
+function dashP5(){return`<div class="kpis"><div class="kpi"><div class="kpi-v g">4.1M</div><div class="kpi-l">Impressions (+17%)</div></div><div class="kpi"><div class="kpi-v g">3.2%</div><div class="kpi-l">CTR vs 2.5% target</div></div><div class="kpi"><div class="kpi-v r">1.8%</div><div class="kpi-l">Conv. Rate (vs 2.5%)</div></div><div class="kpi"><div class="kpi-v w">3.7×</div><div class="kpi-l">ROI (vs 4.0× target)</div></div><div class="kpi"><div class="kpi-v n">$95K</div><div class="kpi-l">Total Spend</div></div></div><div class="chart-grid"><div class="cbox"><div class="cbox-t">ROI by Channel — Actual vs 4× Benchmark</div><canvas id="cc1"></canvas></div><div class="cbox"><div class="cbox-t">Conversion Rate by Audience Segment</div><canvas id="cc2"></canvas></div></div><div class="chart-grid"><div class="cbox span2"><div class="cbox-t">Weekly CTR Trend by Channel (6 Weeks)</div><canvas id="cc3"></canvas></div></div><div class="dtbox"><div class="dtbox-t">Channel Performance Breakdown</div><table class="dt"><thead><tr><th>Channel</th><th>Spend</th><th>CTR</th><th>Conv. Rate</th><th>CPA</th><th>ROI</th><th>Phase 2 Action</th></tr></thead><tbody><tr><td>Google Search</td><td>$32K</td><td>6.8%</td><td>4.2%</td><td>$9.30</td><td><span class="pill pill-g">6.2×</span></td><td>↑ Increase to 45% of budget</td></tr><tr><td>Instagram</td><td>$28K</td><td>3.1%</td><td>2.1%</td><td>$13.50</td><td><span class="pill pill-g">4.1×</span></td><td>Shift budget to Reels format</td></tr><tr><td>Facebook</td><td>$22K</td><td>1.9%</td><td>1.3%</td><td>$19.80</td><td><span class="pill pill-w">2.8×</span></td><td>Test video before cutting</td></tr><tr><td>YouTube</td><td>$13K</td><td>0.8%</td><td>0.6%</td><td>$36.10</td><td><span class="pill pill-r">1.6×</span></td><td>↓ Pause or reduce to 5%</td></tr></tbody></table></div><div class="insights"><div class="ins"><div class="ins-n">Creative Learning</div><div class="ins-t">UGC-style content outperformed studio shots 2.3× on CTR. "Shop Now" beat "Learn More" by 38% even at top of funnel. Phase 2 brief: UGC-first.</div></div><div class="ins"><div class="ins-n">Timing Insight</div><div class="ins-t">74% of conversions came from mobile. Peak: 8–10pm. Recommendation: +30% bid adjustment for evening slots + mobile-first creative brief.</div></div></div>`;}
+
+function dashP8(){return`<div class="kpis"><div class="kpi"><div class="kpi-v g">4.1×</div><div class="kpi-l">Instagram ROI</div></div><div class="kpi"><div class="kpi-v r">−38%</div><div class="kpi-l">Pinterest CTR (4 wks)</div></div><div class="kpi"><div class="kpi-v w">+22%</div><div class="kpi-l">Google CPA Trend</div></div><div class="kpi"><div class="kpi-v g">3.1%</div><div class="kpi-l">Health Segment Conv.</div></div><div class="kpi"><div class="kpi-v n">3 hrs</div><div class="kpi-l">Reporting Saved/Wk</div></div></div><div class="chart-grid"><div class="cbox"><div class="cbox-t">6-Month ROI Trend by Channel</div><canvas id="cc1"></canvas></div><div class="cbox"><div class="cbox-t">Conversion Rate by Audience Segment</div><canvas id="cc2"></canvas></div></div><div class="chart-grid"><div class="cbox span2"><div class="cbox-t">Monthly Spend vs Conversion Volume</div><canvas id="cc3"></canvas></div></div><div class="dtbox"><div class="dtbox-t">Live Campaign Performance Table</div><table class="dt"><thead><tr><th>Campaign</th><th>Channel</th><th>Spend</th><th>CTR</th><th>Conversions</th><th>ROI</th><th>Status</th></tr></thead><tbody><tr><td>Summer Health Drive</td><td>Instagram</td><td>$18K</td><td>4.2%</td><td>312</td><td><span class="pill pill-g">4.1×</span></td><td>🟢 Scale</td></tr><tr><td>Home Living Q3</td><td>Facebook</td><td>$12K</td><td>1.8%</td><td>98</td><td><span class="pill pill-w">2.9×</span></td><td>🟡 Optimise</td></tr><tr><td>Fashion Spring</td><td>Pinterest</td><td>$8K</td><td>0.9%</td><td>42</td><td><span class="pill pill-r">1.4×</span></td><td>🔴 Pause</td></tr><tr><td>Tech Audience</td><td>Google</td><td>$22K</td><td>5.8%</td><td>287</td><td><span class="pill pill-g">5.8×</span></td><td>🟢 Scale</td></tr><tr><td>Brand Awareness</td><td>YouTube</td><td>$10K</td><td>1.1%</td><td>61</td><td><span class="pill pill-w">2.2×</span></td><td>🟡 Test</td></tr></tbody></table></div><div class="insights"><div class="ins"><div class="ins-n">Action 01 · Reallocate</div><div class="ins-t">Pause Pinterest — CTR down 38%. Reallocate $8K to Instagram Reels where health segment converts at 3.1% vs 1.8% overall.</div></div><div class="ins"><div class="ins-n">Action 02 · Bid Strategy</div><div class="ins-t">Google CPA up 22% over 6 weeks. Flag for bid strategy review — test broad match + Smart Bidding on core keywords.</div></div></div>`;}
+
+function drawCharts(){
+  const B='#2B4BF2',G='#16a34a',R='#dc2626',A='#f59e0b',P='#a855f7',O='#f97316';
+  const grid='rgba(0,0,0,.05)',tk={color:'#999',font:{size:10,family:'DM Sans'}};
+  const base={responsive:true,maintainAspectRatio:true,plugins:{legend:{labels:{font:{size:10,family:'DM Sans'},color:'#444',boxWidth:10}}}};
+  function mk(id,cfg){const el=document.getElementById(id);if(!el)return;CHARTS.push(new Chart(el.getContext('2d'),cfg));}
+  const dash=document.querySelector('.dash-type')?.textContent||'';
+  if(dash.includes('Signify')){
+    mk('cc1',{type:'bar',data:{labels:['Singapore','Indonesia','Malaysia','Thailand','Vietnam','Philippines'],datasets:[{label:'Prospects',data:[3800,2900,2400,2100,1600,1200],backgroundColor:[B,A,G,O,P,R].map(c=>c+'cc'),borderRadius:6,borderSkipped:false}]},options:{...base,plugins:{...base.plugins,legend:{display:false}},scales:{x:{grid:{display:false},ticks:tk},y:{grid:{color:grid},ticks:tk}}}});
+    mk('cc2',{type:'scatter',data:{datasets:[{label:'Projects',data:[{x:8,y:9.2},{x:6,y:7.1},{x:9,y:8.8},{x:4,y:5.3},{x:7,y:6.9},{x:3,y:8.1},{x:8,y:4.2},{x:5,y:7.8},{x:9,y:9.5},{x:2,y:3.4}],backgroundColor:B+'88',borderColor:B,pointRadius:7}]},options:{...base,plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'Priority Score',color:'#999',font:{size:10}},grid:{color:grid},ticks:tk},y:{title:{display:true,text:'Revenue Impact (€B)',color:'#999',font:{size:10}},grid:{color:grid},ticks:tk}}}});
+    mk('cc3',{type:'bar',data:{labels:['Singapore','Malaysia','Indonesia','Thailand','Vietnam','Philippines','Australia','India'],datasets:[{label:'Signify',data:[88,72,65,58,54,49,81,63],backgroundColor:G+'cc',borderRadius:4},{label:'Competitor Avg',data:[74,68,70,55,48,51,76,58],backgroundColor:'rgba(0,0,0,.1)',borderRadius:4}]},options:{...base,scales:{x:{grid:{display:false},ticks:tk},y:{grid:{color:grid},ticks:tk}}}});
+  } else if(dash.includes('Post-Campaign')){
+    mk('cc1',{type:'bar',data:{labels:['Google Search','Instagram','Facebook','YouTube'],datasets:[{label:'Actual ROI',data:[6.2,4.1,2.8,1.6],backgroundColor:[G,B,A,R].map(c=>c+'cc'),borderRadius:6,borderSkipped:false},{label:'4× Benchmark',data:[4,4,4,4],type:'line',borderColor:'rgba(0,0,0,.2)',borderDash:[5,5],pointRadius:0,fill:false}]},options:{...base,scales:{x:{grid:{display:false},ticks:tk},y:{grid:{color:grid},ticks:tk,max:8}}}});
+    mk('cc2',{type:'doughnut',data:{labels:['F 28–35 Home & Living','F 22–28 Fashion','M 30–45 Tech','F 45+ General','Other'],datasets:[{data:[3.1,2.4,2.8,1.2,0.8],backgroundColor:[G,B,O,A,P].map(c=>c+'cc'),borderWidth:0}]},options:{...base,plugins:{legend:{position:'right',labels:{font:{size:10,family:'DM Sans'},color:'#444',boxWidth:10}}}}});
+    mk('cc3',{type:'line',data:{labels:['Wk1','Wk2','Wk3','Wk4','Wk5','Wk6'],datasets:[{label:'Google',data:[5.2,5.8,6.4,7.1,6.8,6.9],borderColor:G,tension:.4,fill:false,pointRadius:3},{label:'Instagram',data:[2.4,2.8,3.3,3.1,3.4,3.2],borderColor:B,tension:.4,fill:false,pointRadius:3},{label:'Facebook',data:[1.8,2.0,1.9,1.7,1.8,1.9],borderColor:A,tension:.4,fill:false,pointRadius:3},{label:'YouTube',data:[0.9,0.8,0.7,0.8,0.8,0.9],borderColor:R,tension:.4,fill:false,pointRadius:3}]},options:{...base,scales:{x:{grid:{display:false},ticks:tk},y:{grid:{color:grid},ticks:tk,max:8}}}});
+  } else {
+    mk('cc1',{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Instagram',data:[3.8,4.0,4.1,4.3,4.1,4.1],borderColor:B,tension:.4,fill:false,pointRadius:3},{label:'Google',data:[5.1,5.4,5.8,6.0,5.7,5.8],borderColor:G,tension:.4,fill:false,pointRadius:3},{label:'Pinterest',data:[3.4,3.2,2.9,2.6,2.2,2.1],borderColor:R,tension:.4,fill:false,pointRadius:3},{label:'Facebook',data:[3.0,2.9,2.8,3.1,2.9,2.9],borderColor:A,tension:.4,fill:false,pointRadius:3}]},options:{...base,scales:{x:{grid:{display:false},ticks:tk},y:{grid:{color:grid},ticks:tk}}}});
+    mk('cc2',{type:'bar',data:{labels:['Health','Fashion','Tech','Home','Other'],datasets:[{label:'Conv. Rate %',data:[3.1,2.4,2.8,2.1,1.2],backgroundColor:[G,B,O,A,P].map(c=>c+'cc'),borderRadius:6,borderSkipped:false}]},options:{...base,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:tk},y:{grid:{color:grid},ticks:tk}}}});
+    mk('cc3',{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Spend ($K)',data:[28,32,30,35,38,40],backgroundColor:B+'44',borderRadius:4,yAxisID:'y'},{label:'Conversions',data:[312,389,348,428,478,512],type:'line',borderColor:G,tension:.4,fill:false,pointRadius:3,yAxisID:'y1'}]},options:{...base,scales:{x:{grid:{display:false},ticks:tk},y:{grid:{color:grid},ticks:tk,position:'left'},y1:{grid:{display:false},ticks:tk,position:'right'}}}});
+  }
+}
+
+function closeV(){killCharts();document.getElementById('viewer')
